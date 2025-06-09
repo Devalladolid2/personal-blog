@@ -7,21 +7,28 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecuta la migración.
+     *
+     * Crea la tabla 'articles' con los campos necesarios para almacenar artículos.
+     *
+     * @return void
      */
     public function up(): void
-{
-    Schema::create('articles', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->text('content');
-        $table->date('published_at');
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('articles', function (Blueprint $table) {
+            $table->id();                          // Clave primaria autoincremental
+            $table->string('title');              // Título del artículo
+            $table->text('content');              // Contenido del artículo
+            $table->date('published_at');         // Fecha de publicación
+        });
+    }
 
     /**
-     * Reverse the migrations.
+     * Revierte la migración.
+     *
+     * Elimina la tabla 'articles' si existe.
+     *
+     * @return void
      */
     public function down(): void
     {
